@@ -17,10 +17,13 @@ jobs:
           npm --version
           npm install
           npm run build
+          pwd
+          ls
+
       
       - name: deploy
         uses: JamesIves/github-pages-deploy-action@v4
         with:
           branch: github-pages
-          folder: dist
+          folder: ./dist
 
