@@ -1,0 +1,23 @@
+on: push
+
+permissions:
+  contents: write
+
+jobs:
+  npm-build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: build
+      - uses: actions/checkout@v5
+      - run: 
+          pwd
+          npm --version
+          npm install
+          npm run build
+      
+      - name: deploy
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          branch: github-pages
+          folder: build
+
