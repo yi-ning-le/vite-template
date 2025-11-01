@@ -11,14 +11,14 @@ jobs:
       - name: get repo contents
         uses: actions/checkout@v5
       
-      - name: build
+      - name: install node dependency & build
         run: 
-          pwd
-          npm --version
           npm install
           npm run build
-          pwd
+      - name: check output result
+        run:
           ls
+          
 
       
       - name: deploy
