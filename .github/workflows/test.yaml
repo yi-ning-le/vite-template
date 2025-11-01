@@ -6,10 +6,13 @@ permissions:
 jobs:
   npm-build:
     runs-on: ubuntu-latest
+
     steps:
+      - name: get repo contents
+        uses: actions/checkout@v5
+      
       - name: build
-      - uses: actions/checkout@v5
-      - run: 
+        run: 
           pwd
           npm --version
           npm install
