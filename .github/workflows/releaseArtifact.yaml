@@ -1,10 +1,7 @@
 on: workflow_dispatch
 
-permissions:
-  contents: write
-
 jobs:
-  npm-build:
+  release-artifact:
     runs-on: ubuntu-latest
 
     steps:
@@ -17,8 +14,8 @@ jobs:
       - name: build
         run: npm run build
 
-      - name: deploy
-        uses: JamesIves/github-pages-deploy-action@v4
+      - name: create release artifact
+        uses: actions/upload-artifact@v5
         with:
-          branch: github-pages
-          folder: ./dist
+          name: release-artifact
+          path: ./dist
