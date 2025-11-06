@@ -15,7 +15,12 @@ jobs:
         run: npm run build
 
       - name: create release artifact
-        uses: actions/upload-artifact@v5
+        uses: softprops/action-gh-release@v2
         with:
-          name: release-artifact
-          path: ./dist
+          files: ./dist/**
+          body: "Release artifact built from latest code."
+          tag_name: "v0.0.0-release-artifact"
+        # uses: actions/upload-artifact@v5
+        # with:
+        #   name: release-artifact
+        #   path: ./dist
